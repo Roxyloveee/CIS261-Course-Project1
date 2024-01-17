@@ -11,7 +11,7 @@ def getHourlyRate():
     return hourlyRate
 
 def getTaxRate():
-    taxRate = float(inuput("Enter tax rate: "))
+    taxRate = float(input("Enter tax rate: "))
     taxRate = taxRate / 100
     return taxRate
 
@@ -22,7 +22,7 @@ def CalcTaxAndNetPay(hours, hourlyRate, taxRate):
     return gPay, incomeTax, netPay
 
 def printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay):
-        print(empName, f"{hours:,.2f}", f"{hourlyRate:,.2f}", f"{gPay:,.2f}", f"{taxRate:,.1%}", f"{incomeTax:,.2f}", f"{netPay:,.2f}")
+    print(empName, f"{hours:,.2f}", f"{hourlyRate:,.2f}", f"{gPay:,.2f}", f"{taxRate:,.1%}", f"{incomeTax:,.2f}", f"{netPay:,.2f}")
         
 def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay):
     print(f"\nTotal number of employees: {totalEmployees}")
@@ -31,7 +31,7 @@ def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay
     print(f"Total tax: {totalTax:,.2f}")
     print(f"Total net pay: {totalNetPay:,.2f}")
     
-if __name__ == "_main_":
+if __name__ == "__main__":
     totalEmployees = 0
     totalHours = 0.00
     totalGrossPay = 0.00

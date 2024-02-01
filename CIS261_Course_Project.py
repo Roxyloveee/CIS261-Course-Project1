@@ -29,7 +29,7 @@ def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay
     print(f"Total hours worked: {totalHours:,.2f}")
     print(f"Total gross pay: {totalGrossPay:,.2f}")
     print(f"Total tax: {totalTax:,.2f}")
-    print(f"Total net pay: {totalNetPay:,.2f}")
+    print(f"Total Net pay: {totalNetPay:,.2f}")
     
 if __name__ == "__main__":
     totalEmployees = 0
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     
     while True:
         empName = getEmpName()
-        if (empName.upper() =="END"):
+        if (empName.upper() == "END"):
             break
         hours = getHoursWorked()
         hourlyRate = getHourlyRate()
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     
         printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay)
     
-        totalEmployees +=1
+        totalEmployees += 1
         totalHours += hours
         totalGrossPay += gPay
         totalTax += incomeTax

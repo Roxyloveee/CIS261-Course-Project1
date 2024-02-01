@@ -1,3 +1,8 @@
+def getDatesWorked():
+    fromDate = input("Please enter start date in the following format MM/DD/YYYY: ")
+    endDate = input("Please enter end date in the following format MM/DD?YYY: ")
+    return fromDate, endDate
+#this function means xyz
 def getEmpName():
     empName = input("Enter employee name: ")
     return empName
@@ -21,7 +26,7 @@ def CalcTaxAndNetPay(hours, hourlyRate, taxRate):
     netPay = gPay - incomeTax
     return gPay, incomeTax, netPay
 
-def printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay):
+def printInfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay):
     print(empName, f"{hours:,.2f}", f"{hourlyRate:,.2f}", f"{gPay:,.2f}", f"{taxRate:,.1%}", f"{incomeTax:,.2f}", f"{netPay:,.2f}")
         
 def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay):

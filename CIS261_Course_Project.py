@@ -38,24 +38,24 @@ if __name__ == "__main__":
     totalTax = 0.00
     TotalNetPay = 0.00
     
-    while True:
-        empName = getEmpName()
-        if (empName.upper() == "END"):
-            break
-        hours = getHoursWorked()
-        hourlyRate = getHourlyRate()
-        taxRate = getTaxRate()
-        gPay, incomeTax, netPay = CalcTaxAndNetPay(hours, hourlyRate, taxRate)
+while True:
+    empName = getEmpName()
+    if (empName.upper() == "END"):
+        break
+    hours = getHoursWorked()
+    hourlyRate = getHourlyRate()
+    taxRate = getTaxRate()
+    gPay, incomeTax, netPay = CalcTaxAndNetPay(hours, hourlyRate, taxRate)
     
-        printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay)
+    printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay)
     
-        totalEmployees += 1
-        totalHours += hours
-        totalGrossPay += gPay
-        totalTax += incomeTax
-        totalNetPay += netPay
+    totalEmployees += 1
+    totalHours += hours
+    totalGrossPay += gPay
+    totalTax += incomeTax
+    totalNetPay += netPay
     
-    PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
+PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
 
     
     

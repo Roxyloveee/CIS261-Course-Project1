@@ -1,3 +1,63 @@
+from datetime import datetime
+def CreateUsers():
+    print('  Create users, passwords, and roles     ')
+    UserFile = open("Users.txt", "a+")
+    while True:
+        username = getUserName()
+        if (username.upper() == "END"):
+            break
+        userpwd = getUserPassword()
+        userrole = getUserRole()
+
+        userDetail = username + "|" + userpwd + "|" + userrole + "\n"
+        userFile.write(userDetail)
+
+    userFile.close()
+    printuserinfo()
+def getUserName():
+    username = input("Enter user name or 'End' to quit: ")
+    return username
+def getUserPassword():
+    pwd = input("Enter password: ")
+    return pwd
+def getUserRole():
+    userrole = input("Enter role (Admin or User): ")
+    while True:
+        if (userrole.upper() == "ADMIN" or userrole.upper() == "USER"):
+            return userrole
+        else:
+            userrole = input("Enter role (Admin or User): ")
+def printuserinfo():
+    userFile = open("Users.txt", "r")
+    while True:
+        userDetail = userFile.readline()
+        if not userDetail:
+            break
+        userDetail = userDetail.replace("\n", "")
+        userList = userDetail.split("|")
+        userName = userList[0]
+        userPassword = userList[1]
+        userrole = userList[2]
+        print("User Name: ", username, " Password: ", userpassword, "Role: ", userrole)
+
+def Login():
+    userFile = open("Users.txt", "r")
+    userList = []
+    userName = input("Enter User Name: ")
+    userPwd = input("Enter Password: ")
+    userRole = "None"
+    while True:
+        userDetail = userFile.readline()
+        if not userDetail:
+            return userRole, userName, userPwd
+        userDetail = userDetail.replace("\n", "")
+
+        userList = userDetail.split("|")
+        if userName == userList[0] and userPwd == userList[1]:
+            userRole = userList[2] # user is valid, return role
+            return userRole, userName
+    return userRole, userName
+
 def getDatesWorked():
     fromDate = input("Please enter start date in the following format MM/DD/YYYY: ")
     endDate = input("Please enter end date in the following format MM/DD/YYYY: ")
@@ -55,6 +115,7 @@ def printTotals(empTotals):
     print(f'Total Tax Of Employees: {empTotals["totTax"]}')
     print(f'Total Net Pay Of Employees: {empTotals["totNet"]}')
 if __name__ == "__main__":
+
     empDetailList = []
     empTotals = {}
     while True:
@@ -75,3 +136,28 @@ if __name__ == "__main__":
         empDetailList.append(empDetail)
     printInfo(empDetailList)
     printTotals(empTotals)
+
+
+    createUsers()
+    print()
+    print("##### Data Entry #####")
+    userRole, userName = Login()
+    detailsPrinted = False
+    empTotals = {}
+    if (userRole.upper() == "NONE"):
+        print(userName, " is invalid.")
+    else:
+        if (userRole.upper() == "ADMIN"):
+
+            empFile = open("Employees.txt", "a+")
+            while True:
+                empName = getEmpName()
+                if (empName.upper() == "END"):
+                    break
+                fromdate, enddate = getDatesWorked()
+                hours = getHoursWorked()
+                hourlyrate = getHourlyRate()
+                taxrate = getTaxRate()
+                empDetail = fromdate + "|" + enddate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate) + "\n"empFile.write(empDetail)
+            empFile.close()
+        printinfo(detailsPrinted)

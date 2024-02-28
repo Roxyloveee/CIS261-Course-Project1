@@ -1,3 +1,5 @@
+
+
 def getDatesWorked():
     fromDate = input("Please enter start date in the following format MM/DD/YYYY: ")
     endDate = input("Please enter end date in the following format MM/DD/YYYY: ")
